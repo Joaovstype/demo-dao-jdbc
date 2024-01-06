@@ -23,6 +23,12 @@ public class Program {
 		
 		System.out.println(seller);
 		
+		System.out.println("\n=== TEST 5: seller update ===");
+		seller = sellerDao.findById(1);
+		seller.setBaseSalary(10000.0);
+		sellerDao.update(seller);
+		System.out.println("Update complete");
+		
 		System.out.println("\n=== TEST 2: seller findByDepartment ===");
 		
 		System.out.println("Enter with the department Id: ");
@@ -46,12 +52,18 @@ public class Program {
 		}
 		
 		System.out.println("\n=== TEST 4: seller insert ===");
+		
 		Seller newSeller = new Seller(null,"Greg", "Greg@gmail.com", new Date(), 4000.0, department);
 		
 		sellerDao.insert(newSeller);
 		
 		System.out.println("Inserted! New id = " + newSeller);
 		
+		System.out.println("\n=== TEST 5: seller update ===");
+		seller = sellerDao.findById(1);
+		seller.setName("MArtha Wayne");
+		sellerDao.update(seller);
+		System.out.println("Update complete");
 		
 		sc.close();
 	}
